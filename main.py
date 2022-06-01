@@ -1,14 +1,21 @@
 import argparse
 import uuid
 
-
 parser = argparse.ArgumentParser(description="TODO list manager")
 parser.add_argument(
-    "--todo", "-t", metavar="todo: ", type=str, help="Write an item to add to your TODO list",
+    "--todo",
+    "-t",
+    nargs="?",
+    metavar="todo: ",
+    type=str,
+    help="Write an item to add to your TODO list",
 )
 parser.add_argument(
-    "--view", "-v",
+    "--view",
+    "-v",
+    nargs="?",
     metavar="view: ",
+    type=null,
     help="This takes no arguments, don't give",
 )
 
