@@ -1,7 +1,9 @@
 import argparse
 import uuid
 
-parser = argparse.ArgumentParser(description="TODO list manager")
+parser = argparse.ArgumentParser(
+    description="TODO list manager", prog="plaintext-manager"
+)
 parser.add_argument(
     "--todo",
     "-t",
@@ -11,19 +13,19 @@ parser.add_argument(
     help="Write an item to add to your TODO list",
 )
 parser.add_argument(
-    "--view",
-    "-v",
-    nargs="?",
-    metavar="view: ",
-    type=null,
-    help="This takes no arguments, don't give",
+    "--view", "-v", action="store_true", help="This takes no arguments, don't give",
 )
 
 arg = parser.parse_args()
-if len(arg.todo) != 0:
+if arg.todo != None and len(arg.todo) != 0:
     full_unique_id = str(uuid.uuid4())
     unique_id = full_unique_id[0:8]
     string_to_write = unique_id + " " + arg.todo + "\n"
     file = open("/home/ravi/Documents/TODO/TODO.txt", "a")
     file.write(string_to_write)
     file.close()
+
+if arg.view != False:
+    file = open("/home/ravi/Documents/TODO/TODO.txt", "r")
+    for line in file:
+        print(line)
