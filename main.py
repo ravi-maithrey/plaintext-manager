@@ -5,15 +5,10 @@ parser = argparse.ArgumentParser(
     description="TODO list manager", prog="plaintext-manager"
 )
 parser.add_argument(
-    "--todo",
-    "-t",
-    nargs="?",
-    metavar="todo: ",
-    type=str,
-    help="Write an item to add to your TODO list",
+    "--todo", "-t", type=str, help="Write an item to add to your TODO list",
 )
 parser.add_argument(
-    "--view", "-v", action="store_true", help="This takes no arguments, don't give",
+    "--view", "-v", action="store_true", help="View the ",
 )
 
 arg = parser.parse_args()
